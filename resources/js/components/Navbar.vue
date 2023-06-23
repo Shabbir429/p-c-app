@@ -62,7 +62,7 @@ import axios from "axios";
             axios.get('/api/signin')
                 .then(response => {
                 this.user = response.data;
-                console.log(this.user);
+                // console.log(this.user);
                 })
                 .catch(error => {
                 console.log(error);
@@ -72,6 +72,7 @@ import axios from "axios";
             axios.post('/logout')
                 .then(response => {
                 this.user =null,
+                console.log(this.user);
                 window.location.href = '/';
                 })
                 .catch(error => {

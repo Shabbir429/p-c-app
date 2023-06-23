@@ -20,8 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => 'web'], function () {
-
-    Route::auth();
+    // Route::auth();
     Route::get('/signin', [UserController::class,'checkLogin']);
     Route::get('/save',[ItemController::class,'save']);
 });

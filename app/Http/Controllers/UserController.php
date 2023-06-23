@@ -15,7 +15,8 @@ class UserController extends Controller
     
     public function checkLogin(Request $request)
     {
-        $user = auth('sanctum')->user();
+        // $user = auth('sanctum')->user();
+        $user=Auth::user();
         return response()->json($user);
 
     }             
