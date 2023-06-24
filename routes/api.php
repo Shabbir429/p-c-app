@@ -23,4 +23,6 @@ Route::group(['middleware' => 'web'], function () {
     // Route::auth();
     Route::get('/signin', [UserController::class,'checkLogin']);
     Route::get('/save',[ItemController::class,'save']);
+    Route::post('/title',[ItemController::class,'storetital']);
+    Route::get('/getlist',[ItemController::class,'getlist']);
 });

@@ -4,6 +4,9 @@
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
         </svg>
     </router-link>
+    <div class="title">
+        {{list.title}}
+    </div>
     <img @click="Addnew" class="edit" width="100" height="100" src="https://img.icons8.com/external-others-inmotus-design/100/external-Edit-virtual-keyboard-others-inmotus-design.png" alt="external-Edit-virtual-keyboard-others-inmotus-design"/>
     <!-- <router-view></router-view> -->
 </template>
@@ -17,14 +20,24 @@ import axios from "axios";
         data() {   
             return {
             title:"Dashboard",
+            list:{},
             };
         },
         mounted() {
-
+            this.gettitle();
         },
         methods: {
             Addnew() {
                 this.$router.push('/addnew');
+            },
+            gettitle(){
+                axios.get("/api/getlist")
+                .then((response) => {
+                this.list = response.data;
+                })
+                .catch((error) => {
+                console.log(error);
+                });
             },
         },
     };
@@ -39,5 +52,8 @@ import axios from "axios";
     /*background:linear-gradient(to top, blue , lightblue);*/
     
 }
-
+.title{
+    background:black;
+    color:white;
+}
 </style>
