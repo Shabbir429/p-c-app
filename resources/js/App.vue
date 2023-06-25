@@ -1,10 +1,10 @@
 <template>
-  <div id="app">
+  <!-- <div id="app"> -->
     <Navbar></Navbar>
     <!-- <Dashboard></Dashboard> -->
     <!-- <Addnew></Addnew> -->
     <router-view></router-view>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>

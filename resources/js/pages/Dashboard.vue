@@ -53,7 +53,13 @@ import axios from "axios";
     
 }
 .title{
-    background:black;
-    color:white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width:163vh; 
+    height:3.5em;   
+    position: absolute;
+    left: 11%;
+    margin-top:-40px;
+    height:50px; 
 }
+    
 </style>
