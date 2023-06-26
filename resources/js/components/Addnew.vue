@@ -4,8 +4,8 @@
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
         </svg>
     </router-link>
-        <textarea v-model="listdata.title" class="textbox" placeholder="description.." rows="8" cols="100" autofocus/>
-        <span class="text-danger err" v-show="listErr.title">discription is Required</span>
+        <textarea v-model="listdata.title" class="textbox" placeholder="Description.." rows="8" cols="100" autofocus/>
+        <span class="text-danger err" v-show="listErr.title">Discription is Required</span>
         <button type="button" @click="storetitle">Save</button>
 </template>
 
@@ -46,24 +46,24 @@ export default{
 
 <style scoped>
 .textbox{
-    border: 5px solid;
+    border: 0.3em solid;
     position: absolute;
-    top: 30%;
-    left: 50%;
+    top: 15em;
+    left: 47em;
     transform: translate(-50%, -50%);
-    padding: 10px;
+    padding: 1em;
 }
 button{
-    border: 2px solid;
+    border: 0.1em solid;
     position: absolute;
-    top: 70%;
-    left: 80%;
-    width:120px;
-    height:50px;
+    top: 35em;
+    left: 80em;
+    width:8em;
+    height:3em;
     background:lightblue;
 }
 .err{
-    margin:10.5% 0px 0px 37%;
+    margin:5.5em 0px 0px 14em;
     font-size:2.5em;
     position: absolute;
     z-index: 1;    

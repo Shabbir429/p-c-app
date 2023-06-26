@@ -15,15 +15,15 @@ class ItemController extends Controller
         $list= new Listdata;
         $list->id=Auth::user()->id;
         $list->title=$request->title;
-        $list->date=now()->format('d-m-Y');
-        $list->time=now()->format('H:i');
+        $list->date=now()->format('d-M-Y');
+        $list->time=now()->format('H:i A');
         $list->save();
         return response()->json('List Store Sucessfully');
     }
     public function getlist(){
         $id=Auth::user()->id;
-        $data = Listdata::where('id', $id)->first();
-        Log::debug($data);
+        $data = Listdata::where('id', $id)->get();
+        // Log::debug($data);
         return response()->json($data);
     }
 }

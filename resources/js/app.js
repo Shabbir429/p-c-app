@@ -6,6 +6,7 @@
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+// import { BootstrapVue } from 'bootstrap-vue';
 import { createApp } from 'vue';
 
 /**
@@ -17,7 +18,7 @@ import { createApp } from 'vue';
 const app = createApp({});
 
 import App from './App.vue';
-import router from './routes.js';
+import router from './router.js';
 app.component('App',App);
 
 /**
