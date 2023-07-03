@@ -6,7 +6,6 @@
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
-// import { BootstrapVue } from 'bootstrap-vue';
 import { createApp } from 'vue';
 
 /**
@@ -15,7 +14,7 @@ import { createApp } from 'vue';
  * to use in your application's views. An example is included for you.
  */
 
-const app = createApp({});
+const app = createApp(App);
 
 import App from './App.vue';
 import router from './router.js';
@@ -38,6 +37,5 @@ app.component('App',App);
  * an "id" attribute of "app". This element is included with the "auth"
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
-
 app.use(router);
 app.mount('#app');
