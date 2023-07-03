@@ -71,7 +71,7 @@ import axios from "axios";
             axios.post('/logout')
                 .then(response => {
                 this.user =null,
-                console.log(this.user);
+                // console.log(this.user);
                 window.location.href = '/login';
                 })
                 .catch(error => {

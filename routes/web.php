@@ -23,4 +23,5 @@ Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/addnew', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dilemma', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

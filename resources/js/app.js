@@ -5,7 +5,7 @@
  */
 
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
+import bootstrap from'bootstrap/dist/js/bootstrap.bundle.js';
 import { createApp } from 'vue';
 
 /**
@@ -14,7 +14,7 @@ import { createApp } from 'vue';
  * to use in your application's views. An example is included for you.
  */
 
-const app = createApp(App);
+const app = createApp({});
 
 import App from './App.vue';
 import router from './router.js';
@@ -38,4 +38,5 @@ app.component('App',App);
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
 app.use(router);
+app.use(bootstrap);
 app.mount('#app');
