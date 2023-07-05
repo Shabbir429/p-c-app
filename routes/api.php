@@ -25,4 +25,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/save',[ItemController::class,'save']);
     Route::post('/title',[ItemController::class,'storetital']);
     Route::get('/getlist',[ItemController::class,'getlist']);
+    Route::get('/findtitle',[ItemController::class,'findtitle']);
+    Route::post('/edit/{id}',[ItemController::class,'edit']);
 });

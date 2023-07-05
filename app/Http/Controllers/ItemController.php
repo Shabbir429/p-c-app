@@ -13,7 +13,7 @@ class ItemController extends Controller
 {
     public function storetital(Request $request){
         $list= new Listdata;
-        $list->id=Auth::user()->id;
+        $list->u_id=Auth::user()->id;
         $list->title=$request->title;
         $list->date=now()->format('d-M-Y');
         $list->time=now()->format('H:i A');
@@ -22,8 +22,20 @@ class ItemController extends Controller
     }
     public function getlist(){
         $id=Auth::user()->id;
-        $data = Listdata::where('id', $id)->get();
+        $data = Listdata::where('u_id', $id)->get();
         // Log::debug($data);
         return response()->json($data);
+    }
+    public function edit(Request $request,$id) {
+        $list= Listdata::find($id);
+        $list->title=$request->title;
+        $list->save();
+        return response()->json('Title Updated Sucessfully');
+    }
+    public function findtitle(Request $request) {
+        // $id=Auth::user()->id;
+        $data = Listdata::where('id', $request->id)->get();
+         Log::debug($data);
+         return response()->json($data);
     }
 }

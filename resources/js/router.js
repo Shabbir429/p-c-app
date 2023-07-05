@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar.vue";
 import Addnew from "./components/Addnew.vue";
 import Dilemma from "./pages/Dilemma.vue";
 import Dashboard from "./pages/Dashboard.vue";
+import Argument from "./pages/Argument.vue";
 import {createApp} from 'vue';
 
 
@@ -13,6 +14,11 @@ const router = createRouter({
       name: 'Dashboard',
       path: '/dashboard',
       component: Dashboard,
+    },
+    {
+      name: 'Argument',
+      path: '/argument',
+      component: Argument,
     },
     {
       name: 'Nvbar',

@@ -16,10 +16,10 @@
                 </svg>
             </router-link>
             <div> 
-                <textarea v-model="listdata.title" autofocus class="textbox text-capitalize" placeholder="Description.." rows="7" ></textarea>
+                <textarea v-model="listdata.title" autofocus class="textbox text-capitalize" placeholder="Description.." rows="7"></textarea>
             </div>
         </div>
-        <button class="btn" type="button" @click="storetitle">Save</button>
+        <button class="btn" type="button" @click="!this.listdata.id ? storetitle() : edit(this.listdata.id)">Save</button>
     </div>
 
 </template>
@@ -35,7 +35,15 @@ export default{
         return{
             listdata:{
                 title:"",
+                id:null
             },
+        }
+    },
+    created() {
+        const query = this.$route.query;
+        if (query && query.data) {
+            this.listdata.title = query.data;
+            this.listdata.id = query.id;
         }
     },
     methods:{
@@ -53,9 +61,25 @@ export default{
             else{
                 alert('Description is Required...');
             }
-        }
+        },
+        edit(id){
+            if(this.listdata.title){
+                axios.post('/api/edit/' + id,this.listdata)
+                .then(response => {
+                    const data = this.listdata.title;
+                    this.$router.push({
+                        name: 'Dilemma',
+                        query: { data,id },
+                    });
+                    this.id=null;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+            }
+        },
     }
-}
+};
 </script>
 
 <style scoped>

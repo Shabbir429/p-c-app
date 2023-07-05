@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('title_store', function (Blueprint $table) {
             $table->id();
+            $table->integer('u_id');
             $table->string('title');
             $table->string('date');
             $table->string('time');

@@ -17,7 +17,7 @@
         <div class="row row-cols-1">
             <div class="col col-sm-12 parents" v-for="item in list">
                 <button @click="dilemma(item)" class="col">
-                    <div class="title col text-start">
+                    <div class="title col text-start text-capitalize">
                         <div class="circle">{{ getFirstLetter(item.title) }}</div>
                         <div class="data text-break">{{ item.title }}</div>
                         <div class="date-time ">{{ item.date }} {{ item.time }}</div>
@@ -53,9 +53,10 @@ import axios from "axios";
             },
             dilemma(item) {
                 const data = item.title;
+                const id = item.id;
                 this.$router.push({
                 name: 'Dilemma',
-                query: { data },
+                query: { data,id },
                 });
             },
             gettitle(){

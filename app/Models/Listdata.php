@@ -11,6 +11,7 @@ class Listdata extends Model
 
     protected $fillable = [
         'id',
+        'u_id',
         'title',
         'date',
         'time',
