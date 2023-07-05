@@ -16,7 +16,7 @@
    <div class="grand_parent container">
         <div class="row row-cols-1">
             <div class="col col-sm-12 parents" v-for="item in list">
-                <button @click="dilemma" class="col">
+                <button @click="dilemma(item)" class="col">
                     <div class="title col text-start">
                         <div class="circle">{{ getFirstLetter(item.title) }}</div>
                         <div class="data text-break">{{ item.title }}</div>
@@ -36,6 +36,7 @@ import axios from "axios";
     export default{
         name: "Dashboard",
         components:{
+            
         },
         data() {   
             return {
@@ -50,8 +51,12 @@ import axios from "axios";
             Addnew() {
                 this.$router.push('/addnew');
             },
-            dilemma(){
-                this.$router.push('/dilemma');
+            dilemma(item) {
+                const data = item.title;
+                this.$router.push({
+                name: 'Dilemma',
+                query: { data },
+                });
             },
             gettitle(){
                 axios.get("/api/getlist")
@@ -115,5 +120,6 @@ a{
     display:flex;
     justify-content:space-around;
     flex-wrap:wrap;
+    
 }
 </style>
