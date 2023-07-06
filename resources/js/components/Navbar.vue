@@ -85,4 +85,14 @@ import axios from "axios";
 .user{
     display:inline-flex !important;
 }
+input[type="range"] {
+    width: 100%;
+  }
+  
+  output {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+  }
 </style>

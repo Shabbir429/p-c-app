@@ -88,6 +88,8 @@ export default{
     width:100%;
     margin-top: 7em;
     padding: 1em;
+    border-image: linear-gradient(122deg, rgba(159, 43, 250, 1) 0%, rgba(0, 226, 255, 1) 100%, rgba(238, 130, 238, 1) 100%);
+    border-image-slice: 1;
 }
 button{
     border: 0.1em solid;
@@ -95,6 +97,6 @@ button{
     margin-top:10em;
     float:right;
     height:3em;
-    background:lightblue;
+    background:linear-gradient(122deg, rgb(181, 103, 241) 0%, rgb(56, 221, 243) 100%, rgba(238, 130, 238, 1) 100%);
 }
 </style>

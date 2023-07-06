@@ -33,9 +33,7 @@ class ItemController extends Controller
         return response()->json('Title Updated Sucessfully');
     }
     public function findtitle(Request $request) {
-        // $id=Auth::user()->id;
         $data = Listdata::where('id', $request->id)->get();
-         Log::debug($data);
-         return response()->json($data);
+        return response()->json($data);
     }
 }
