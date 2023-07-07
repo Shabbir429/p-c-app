@@ -56,7 +56,7 @@ import axios from "axios";
                 const id = item.id;
                 this.$router.push({
                 name: 'Dilemma',
-                query: { data,id },
+                query: { id },
                 });
             },
             gettitle(){

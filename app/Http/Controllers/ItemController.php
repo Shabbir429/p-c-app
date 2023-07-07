@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use App\Models\Listdata;
+use App\Models\Proscons;
 
 use function Psy\debug;
 
@@ -32,8 +33,27 @@ class ItemController extends Controller
         $list->save();
         return response()->json('Title Updated Sucessfully');
     }
-    public function findtitle(Request $request) {
-        $data = Listdata::where('id', $request->id)->get();
+    public function findtitle($id) {
+        $data = Listdata::find($id);
+        // Log::debug($data);
+        return response()->json($data);
+    }
+    public function proscons(Request $request) {
+        $list= new Proscons;
+        $list->t_id=$request->id;
+        $list->argument=$request->argument;
+        $list->importance=$request->importance;
+        $list->proscons=$request->prco;
+        $list->save();
+        return response()->json('Argument Stored Sucessfully');
+    }
+    public function findpros($id) {
+        $data = Proscons::where('proscons', 'pros')->where('t_id', $id)->get();   
+        // Log::debug($data);
+        return response()->json($data);
+    }public function findcons($id) {
+        $data = Proscons::where('proscons', 'cons')->where('t_id', $id)->get();   
+        // Log::debug($data);
         return response()->json($data);
     }
 }

@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row">
             <div> 
-                <textarea v-model="pc.title" autofocus class="textbox text-capitalize" placeholder="Description.." rows="5"></textarea>
+                <textarea v-model="pc.argument" autofocus class="textbox text-capitalize" placeholder="Description.." rows="5"></textarea>
             </div>
             <div class="col col-sm-12 text-center mt-3" style="display: flex;flex-direction: column;">
-                <input type="range" value="5" min="1" class="col align-self-center col-sm-5" max="10" oninput="this.nextElementSibling.value = this.value" :value="pc.importance">
-                <output class="circle align-self-center mt-3">5</output>
+                <input type="range" v-model="selectedValue" @input="updateOutput" min="1" class="col align-self-center col-sm-5" max="10" oninput="this.nextElementSibling.value = this.value">
+                <output class="circle align-self-center mt-3">{{selectedValue}}</output>
             </div>              
             <div class="text-center">
                 <p>Importance</p>
@@ -21,25 +21,52 @@
 </template>
 
 <script>
+import axios from "axios";
 export default{
     data() {
         return {
             pc:{
-                title:"",
+                id:"",
+                argument:"",
                 importance:"",
                 prco:"",
             },
+            selectedValue: 5,
         };
     },
     mounted() {
-        
+        const query = this.$route.query;
+        if (query && query.id) {
+            this.pc.id = query.id;
+        }
     },
     created() {
+
     },
     methods:{
-        proscons(){
-            console.log(this.pc);
+        refresh(){
+            window.location.reload();
         },
+        proscons(){
+            this.pc.importance=this.selectedValue;
+            const id = this.pc.id;
+            // console.log(this.pc);
+            axios.post('/api/prco',this.pc)
+                .then(response => {
+                    this.$router.push({
+                        name: 'Dilemma',
+                        query: { id },
+                    });
+                    this.refresh();
+                })
+                .catch(error => {
+                    console.log(error);
+                }
+            );
+        },
+        updateOutput() {
+            this.selectedValue = this.selectedValue;
+        }
     },
 }
 </script>

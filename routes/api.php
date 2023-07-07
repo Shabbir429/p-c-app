@@ -25,6 +25,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/save',[ItemController::class,'save']);
     Route::post('/title',[ItemController::class,'storetital']);
     Route::get('/getlist',[ItemController::class,'getlist']);
-    Route::get('/findtitle',[ItemController::class,'findtitle']);
+    Route::get('/findtitle/{id}',[ItemController::class,'findtitle']);
     Route::post('/edit/{id}',[ItemController::class,'edit']);
+    Route::get('/findpros/{id}',[ItemController::class,'findpros']);
+    Route::get('/findcons/{id}',[ItemController::class,'findtitle']);
+    Route::post('/prco',[ItemController::class,'proscons']);
 });
