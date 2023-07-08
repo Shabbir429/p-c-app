@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Collection;
 use App\Models\Listdata;
 use App\Models\Proscons;
 
@@ -48,12 +49,23 @@ class ItemController extends Controller
         return response()->json('Argument Stored Sucessfully');
     }
     public function findpros($id) {
-        $data = Proscons::where('proscons', 'pros')->where('t_id', $id)->get();   
-        // Log::debug($data);
+        $fatch = Proscons::where('proscons', 'pros')->where('t_id', $id)->get();   
+        $sum = Proscons::where('proscons', 'pros')->where('t_id', $id)->sum('importance'); 
+        $data=[
+            'data' => $fatch,
+            'sum' => $sum
+        ];
+        // Log::debug($all);
         return response()->json($data);
-    }public function findcons($id) {
-        $data = Proscons::where('proscons', 'cons')->where('t_id', $id)->get();   
-        // Log::debug($data);
+    }
+    public function findcons($id) {
+        $fatch = Proscons::where('proscons', 'cons')->where('t_id', $id)->get();  
+        $sum = Proscons::where('proscons', 'cons')->where('t_id', $id)->sum('importance'); 
+        $data=[
+            'data' => $fatch,
+            'sum' => $sum
+        ];
+        // Log::debug($sum);
         return response()->json($data);
     }
 }

@@ -12,7 +12,7 @@
                 <p>Importance</p>
             </div>
             <div class="col-sm-12">
-                <input type="radio" name="p&c" id="pros" value="pros" checked v-model="pc.prco">Pros<br>
+                <input type="radio" name="p&c" id="pros" value="pros" v-model="pc.prco" checked>Pros<br>
                 <input type="radio" name="p&c" id="cons" value="cons" v-model="pc.prco">Cons
             </div>
         </div>
@@ -29,7 +29,7 @@ export default{
                 id:"",
                 argument:"",
                 importance:"",
-                prco:"",
+                prco:"pros",
             },
             selectedValue: 5,
         };
@@ -44,9 +44,6 @@ export default{
 
     },
     methods:{
-        refresh(){
-            window.location.reload();
-        },
         proscons(){
             this.pc.importance=this.selectedValue;
             const id = this.pc.id;
@@ -57,7 +54,7 @@ export default{
                         name: 'Dilemma',
                         query: { id },
                     });
-                    this.refresh();
+                    this.pc.prco="";
                 })
                 .catch(error => {
                     console.log(error);

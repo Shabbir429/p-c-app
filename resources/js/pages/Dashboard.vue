@@ -82,6 +82,7 @@ import axios from "axios";
     height:auto; 
     border-radius:1em;
     font-size:1.3em;
+    border: 1px solid;
 }
 a{
     text-decoration:none;

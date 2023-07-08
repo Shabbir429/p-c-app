@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('t_id');
             $table->string('argument');
-            $table->string('importance');
+            $table->integer('importance');
             $table->string('proscons');
             $table->timestamps();
         });

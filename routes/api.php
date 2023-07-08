@@ -28,6 +28,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/findtitle/{id}',[ItemController::class,'findtitle']);
     Route::post('/edit/{id}',[ItemController::class,'edit']);
     Route::get('/findpros/{id}',[ItemController::class,'findpros']);
-    Route::get('/findcons/{id}',[ItemController::class,'findtitle']);
+    Route::get('/findcons/{id}',[ItemController::class,'findcons']);
     Route::post('/prco',[ItemController::class,'proscons']);
 });
