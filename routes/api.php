@@ -30,4 +30,5 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/findpros/{id}',[ItemController::class,'findpros']);
     Route::get('/findcons/{id}',[ItemController::class,'findcons']);
     Route::post('/prco',[ItemController::class,'proscons']);
+    Route::get('/remove/{id}',[ItemController::class,'destroy']);
 });

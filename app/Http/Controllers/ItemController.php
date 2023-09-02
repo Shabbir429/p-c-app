@@ -55,7 +55,7 @@ class ItemController extends Controller
             'data' => $fatch,
             'sum' => $sum
         ];
-        // Log::debug($all);
+        // Log::debug($fatch);
         return response()->json($data);
     }
     public function findcons($id) {
@@ -67,5 +67,21 @@ class ItemController extends Controller
         ];
         // Log::debug($sum);
         return response()->json($data);
+    }
+    public function destroy($id) {
+        // Log::debug($id);
+        $item = Listdata::find($id);
+        // Log::debug($item);
+        if (!$item) {
+            // Handle the case where the item with the given ID was not found
+            return response()->json(['message' => 'Item not found'], 404);
+        }
+
+        // Delete the item
+        $item->delete();
+
+        // Optionally, return a success message
+        return response()->json(['message' => 'Item deleted successfully']);
+
     }
 }

@@ -15,8 +15,8 @@
         <div class="row mt-3">
             <div class="col">
                 <h3>Pros</h3>
-                <button @click="argumentedit(item)" class="col-sm-12">
-                    <div class="col-sm-12 mt-3 shadow d-flex flex-row mb-2" v-for="item in pros" :key="item.id">
+                <button @click="argumentedit(item)" class="col-sm-12" v-for="item in pros" :key="item.id">
+                    <div class="col-sm-12 mt-3 shadow d-flex flex-row mb-2" >
                         <div class="circle ">{{ item.importance}}</div>
                         <div class="p-2 text-break">{{ item.argument}}</div>
                     </div>
@@ -24,8 +24,8 @@
             </div>
             <div class="col">
                 <h3>Cons</h3>
-                <button @click="argumentedit(item)" class="col-sm-12 ">
-                    <div class="col-sm-12 mt-3 shadow d-flex flex-row mb-2" v-for="item in cons" :key="item.id">
+                <button @click="argumentedit(item)" class="col-sm-12 " v-for="item in cons" :key="item.id">
+                    <div class="col-sm-12 mt-3 shadow d-flex flex-row mb-2" >
                         <div class="circle" style="background: rgb(138, 184, 254);">{{ item.importance}}</div>
                         <div class="p-2 text-break">{{ item.argument}}</div>
                     </div>
@@ -131,9 +131,15 @@ export default{
         },
         argumentedit(item){
             // const item = item;
+            console.log(item.proscons);
             this.$router.push({
                 name: 'Argument',
-                query: { item },
+                query: { 
+                    id: item.id,
+                    argument: item.argument,
+                    importance: item.importance,
+                    prco: item.proscons, 
+                },
             });
         },
     },

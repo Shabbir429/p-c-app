@@ -23,6 +23,7 @@
                         <div class="date-time ">{{ item.date }} {{ item.time }}</div>
                     </div>
                 </button>
+                <button @click="remove(item)" class="btn btn-danger deletet">Delete</button>
             </div>
         </div>
         <img @click="Addnew" class="ms-auto p-2" width="100" height="100" src="https://img.icons8.com/external-others-inmotus-design/100/external-Edit-virtual-keyboard-others-inmotus-design.png" alt="external-Edit-virtual-keyboard-others-inmotus-design"/>
@@ -57,6 +58,17 @@ import axios from "axios";
                 this.$router.push({
                 name: 'Dilemma',
                 query: { id },
+                });
+            },
+            remove(item) {
+                const id = item.id;
+                axios.get("/api/remove/"+id)
+                .then((response) => {
+                    // this.list = response.data;
+                    location.reload();
+                })
+                .catch((error) => {
+                    console.log(error);
                 });
             },
             gettitle(){
@@ -123,5 +135,9 @@ a{
     justify-content:space-around;
     flex-wrap:wrap;
     
+}
+.deletet{
+    height: 3em;
+    margin: 40px 0px 0px 0px;
 }
 </style>

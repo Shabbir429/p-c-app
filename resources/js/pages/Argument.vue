@@ -35,13 +35,21 @@ export default{
         };
     },
     mounted() {
+        
+    },
+    created() {
         const query = this.$route.query;
         if (query && query.id) {
             this.pc.id = query.id;
         }
-    },
-    created() {
-
+        if (query && query.id) {
+        this.pc.id = query.id;
+        this.pc.argument = query.argument;
+        this.pc.importance = query.importance;
+        this.selectedValue=query.importance;
+        this.pc.prco = query.prco;
+        // console.log('Assigned values to pc:', this.pc);
+    }
     },
     methods:{
         proscons(){
