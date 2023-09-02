@@ -65,7 +65,8 @@ import axios from "axios";
                 axios.get("/api/remove/"+id)
                 .then((response) => {
                     // this.list = response.data;
-                    location.reload();
+                    // location.reload();
+                    this.gettitle();
                 })
                 .catch((error) => {
                     console.log(error);
